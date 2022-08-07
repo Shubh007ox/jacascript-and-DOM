@@ -1,1 +1,80 @@
-this is the file to commit the commit the code from terminal
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
+
+// Form submit event
+form.addEventListener('submit', addItem);
+// Delete event
+itemList.addEventListener('click', removeItem);
+// Filter event
+filter.addEventListener('keyup', filterItems);
+
+// Add item
+function addItem(e){
+  e.preventDefault();
+
+  // Get input value
+  var newItem = document.getElementById('item');
+  var description = document.getElementById('description');
+
+  // Create new li element
+  var newli = document.createElement('li');
+  var h1 = document.createElement('h1');
+  h1.textContent = newItem.value;
+  var k = document.createElement('k');
+  k.textContent = description.value
+  newli.appendChild(h1);
+  newli.appendChild(k);
+  
+  // Add class
+  newli.className = 'list-group-item';
+  // Add text node with input value
+  li.appendChild(document.createTextNode(newItem));  
+  
+
+  // Create del button element
+  var deleteBtn = document.createElement('button');
+
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+
+  // Append text node
+  deleteBtn.appendChild(document.createTextNode('X'));
+
+  // Append button to li
+  newli.appendChild(deleteBtn);
+
+  // Append li to list
+  itemList.appendChild(newli);
+}
+
+// Remove item
+function removeItem(e){
+  if(e.target.classList.contains('delete')){
+    if(confirm('Are You Sure?')){
+      var newli = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
+
+// Filter Items
+function filterItems(e){
+  e.preventDefault();
+  var filtertext = e.target.value.toLowerCase();
+  console.log("::: ---" + filtertext);
+  var lists =items.children
+  for(let=0;i<list[i].length;i++){
+    console.log(listtext);
+    console.log(listtext,includes(filtertext));
+    if(!list.includes(filtertext)){
+      list[i].style.display = "none";
+
+    }else{
+      list[i].style.display = 'initial';
+      
+    }
+  }
+
+
+}
